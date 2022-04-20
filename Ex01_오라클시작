@@ -1,0 +1,49 @@
+1. 패키지 설치 (cx_oracle 선택)
+    1) 파이썬쉘에서 설치 방식
+        > pip install cx_oracle
+
+    2) 파이참에서 설치 방식
+        메뉴 > File > Settings > Project > Interpreter
+
+==========================================================
+#[DB 연동 절차]
+#1. Connection 얻어오기
+#2. sql 문장만들기
+#3. cursor 얻어오기
+#4. sql 실행(전송)
+#5. cursor 닫기
+#6. 연결 닫기
+
+
+
+import cx_Oracle as oci
+
+def createTable():
+# [DB 연동 절차]
+# 1. Connection 얻어오기
+    conn = oci.Connection('scott/tiger@127.0.0.1:1521/xe')
+# 2. sql 문장만들기
+    sql = ''
+# 3. cursor 얻어오기
+    cursor = conn.cursor()
+# 4. sql 실행(전송)
+    cursor.execute(sql)
+# 5. cursor 닫기
+    cursor.close()
+# 6. 연결 닫기
+    conn.close()
+
+if __name__ == '__main__':
+    createTable()
+
+# Connection 얻어오기
+con = psql.connect(host='localhost', user='root', password='admin1234', db='world', charset='utf8', autocommit=True)
+# cursor 얻어오기
+cur = con.cursor()
+#  sql 문장만들기
+sql = ""
+# cursor 닫기
+cursor.close()
+# 연결 닫기
+con.close() # DB 연결 종료
+print(rows)
